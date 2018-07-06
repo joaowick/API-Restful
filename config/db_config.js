@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var urlString = 'mongodb://localhost/API';
+var urlString = 'mongodb://admin:admin1234@ds159110.mlab.com:59110/joaowick-mjv';
 
 mongoose.connect(urlString, function(err, res){
     if(err) {
