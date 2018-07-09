@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var produtoController = require('../controllers/produtoController');
+var userController = require('../controllers/userController');
 
 router.get('/', function(req, res) {
-    produtoController.list(function(resp) {
+    userController.list(function(resp) {
         res.json(resp);
     });
 });
 
 router.post('/cadastro', function(req, res) {
     var nome = req.body.nome;
-    var descricao = req.body.descricao;
-    var valor = req.body.valor;
+    var sobrenome = req.body.sobrenome;
+    var email = req.body.email;
 
-    produtoController.save(nome, descricao, valor, function(resp) {
+    userController.save(nome, sobrenome, email, function(resp) {
         res.json(resp);
     });
 });
@@ -21,7 +21,7 @@ router.post('/cadastro', function(req, res) {
 router.delete('/deletar/:id', function(req, res) {
     var id = req.params.id;
 
-    produtoController.delete(id, function(resp) {
+    userController.delete(id, function(resp) {
         res.json(resp);
     });
 });
